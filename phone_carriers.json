@@ -1,0 +1,11 @@
+{
+	"carriers": {
+		"verizon": "@vtext.com",
+		"metro": "@mymetropcs.com",
+		"att": "@txt.att.net",
+		"tmobile":"@tmomail.net",
+		"boost":"@myboostmobile.com",
+		"sprint": "@messaging.sprintpcs.com"
+	}
+
+}
