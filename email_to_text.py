@@ -39,30 +39,56 @@ def send_email(to_address="", from_address="", sender_password="", subject="", b
 
 # make a dic file for list of common phone number endings
 def carrier_ending():
-    with open('phone_carriers.json') as data_file:    
-        data = json.load(data_file)
-        print '678987' + data['carriers']['metro']
-
+    data = load_json_file('phone_carriers.json')
+    return data['carriers']['metro']
+    
 
 
 # make a dic file for list of body statements
-def body_comments():
-   with open('body_comments.json') as data_file:    
+def body_comments():  
+    data = load_json_file('body_comments.json')
+    random_num = get_rand_num(0,5)
+    print data['comments'][random_num]
+# body_comments() # this will be saved as a variable for body
+
+
+
+# make a dic file for list of subject titles
+def subjects():
+    data = load_json_file('subject_list.json')
+    random_num = get_rand_num(0,5)
+    print data['headings'][random_num]
+
+
+
+# make a dic file for different emails addresses and loop through all addresses
+def phone_numbers():
+    data = load_json_file('phone_nums.json')
+    carrier = carrier_ending()
+    for key in data:   #same thing as using x.keys()
+        print data[key] + '@metropcs.com'
+
+
+# Consolidate all reusable code 
+# Could be consolidated more actually 
+def load_json_file(json_file_name):
+    with open(json_file_name) as data_file:    
         data = json.load(data_file)
-        x = random.randint(0,5)
-        print 'random is ' + str(x)
-        print data['comments'][x]
-        
+        return data
+
+
+
+def get_rand_num(low_num, high_num):
+    rand_num = random.randint(low_num, high_num)
+    return rand_num
 
 
 
 #-----------END FUNCTIONS
 
-body_comments()
 
 
-
-''' -------------------------This works----------------------------
+# -------------------------This works----------------------------
 to_address = 
 from_address = 
 subject = 
@@ -74,7 +100,7 @@ password = getpass.getpass(prompt='Password: ')
 #password =  
 
 # Finally send the email
-loop = 3 #int(raw_input('Loop how many times? > '))
+ loop = int(raw_input('Loop how many times? > '))
 while loop > 0:
     try:
         send_email(to_address, from_address, password, subject,
@@ -85,15 +111,14 @@ while loop > 0:
         print "Could not verify email"
         break
 
-'''#---------------End this works-----------------------------
+#---------------End this works-----------------------------
 
 
 
 #---------------------------------------FUTURE IDEAS---------------------------
-# make a dic file for different emails addresses and loop through all addresses
 
 
-# make a dic file for list of subject titles
+
 
 
 
@@ -122,4 +147,12 @@ parser = argparse.ArgumentParser(description='email from the terminal')
 add_args()
 # Parses command line args
 args = parser.parse_args()
+
+
+with open('phone_carriers.json') as data_file:    
+        data = json.load(data_file)
+
+  with open('subject_list.json') as data_file:    
+        data = json.load(data_file)
+        x = random.randint(0,5)
 '''
