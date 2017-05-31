@@ -48,8 +48,7 @@ def carrier_ending():
 def body_comments():  
     data = load_json_file('body_comments.json')
     random_num = get_rand_num(0,5)
-    print data['comments'][random_num]
-# body_comments() # this will be saved as a variable for body
+    return data['comments'][random_num]
 
 
 
@@ -57,7 +56,7 @@ def body_comments():
 def subjects():
     data = load_json_file('subject_list.json')
     random_num = get_rand_num(0,5)
-    print data['headings'][random_num]
+    return data['headings'][random_num]
 
 
 
@@ -87,26 +86,28 @@ def get_rand_num(low_num, high_num):
 #-----------END FUNCTIONS
 
 
-
 # -------------------------This works----------------------------
-to_address = 
-from_address = 
-subject = 
-body = 
+
 
 # Prompt for sender email password
-password = getpass.getpass(prompt='Password: ')
+#password = getpass.getpass(prompt='Password: ')
 
-#password =  
+carrier = carrier_ending()
 
 # Finally send the email
- loop = int(raw_input('Loop how many times? > '))
+loop = 3 #int(raw_input('Loop how many times? > '))
 while loop > 0:
     try:
+        to_address = 
+        from_address = 
+        subject = subjects()
+        body = body_comments()
+        password = 
         send_email(to_address, from_address, password, subject,
                    body)
         loop = loop - 1
         print '[+] ' + str(loop) + ' loops to go...'
+    
     except smtplib.SMTPAuthenticationError:
         print "Could not verify email"
         break
@@ -116,9 +117,6 @@ while loop > 0:
 
 
 #---------------------------------------FUTURE IDEAS---------------------------
-
-
-
 
 
 
