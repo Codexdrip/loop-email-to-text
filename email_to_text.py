@@ -41,9 +41,9 @@ def load_json_file(json_file_name):
 
 
 # make a dic file for list of common phone number endings
-def carrier_ending():
+def carrier_ending(carrier):
     data = load_json_file('phone_carriers.json')
-    return data['carriers']['metro']
+    return data['carriers'][carrier]
     
 
 
@@ -75,17 +75,17 @@ def get_rand_num(low_num, high_num):
 # -------------------------This works----------------------------
 
 
-carrier = carrier_ending()
+carrier = carrier_ending('') # find a list of common carriers and their mappings in the file phone_carriers.json
 
 # Finally send the email
-loop = 1
+loop = 1 # sends one random message
 while loop > 0:
     try:
-        to_address = 
-        from_address = 
-        password = 
-        subject = subjects()
-        body = body_comments()
+        to_address = # an example would be: '1234567890' + carrier
+        from_address =  # your email
+        password =  # your email password
+        subject = subjects() # get random subject line
+        body = body_comments() # get random message 
         send_email(to_address, from_address, password, subject,
                    body)
         print '[+] sent message...'
