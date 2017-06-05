@@ -3,6 +3,8 @@ This sends an email to phone number 'x' amount of times.
 As of 4/30/17 this incomplete.
 
 Update: The program works now as of 5/31/17
+Update: The 'tweaked' branch has been added as of 6/5/17. That branch is more managable and fluid, check it out.
+
 With this you'll be able to send an email from the command line.
 Some ideas:
   - YOu can send emails as text messages and loop the sending process.
