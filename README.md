@@ -9,6 +9,9 @@ Update: The program works now as of 5/31/17
 Update: The tweaked branch works now as of 6/5/17, This branch is now named lovely text.
 
 
+Update: Tweaked the subject function and body_comments function, now you don't have to predefine the number of items in the list. The code automatically knows the length of the list. 6/11/17
+
+
 With this script you'll be able to send a sweet email to a phone number from the command line. If you put the script as a cronjob then you can send sweet text everyday if you please. Fill up the external files (subject_list.json & body_comments.json) with nice messages and the script will randomly choose a subject title and message from those files and send them as a text message or email. There is also a file with common email-to-text phone carrier endings (phone_carriers.json) so those endings can be applied to the phone number. Imagine your mother or significant other receiving a sweet text every morning, that would light up their day!
 
 Some ideas:
