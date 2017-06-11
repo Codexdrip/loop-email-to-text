@@ -50,7 +50,8 @@ def carrier_ending(carrier):
 # make a dic file for list of body statements
 def body_comments():  
     data = load_json_file('body_comments.json')
-    random_num = get_rand_num(0,5)
+    len_of_data = len(data['comments']) - 1
+    random_num = get_rand_num(0,len_of_data)
     return data['comments'][random_num]
 
 
@@ -58,7 +59,8 @@ def body_comments():
 # make a dic file for list of subject titles
 def subjects():
     data = load_json_file('subject_list.json')
-    random_num = get_rand_num(0,5)
+    len_of_data = len(data['headings']) - 1
+    random_num = get_rand_num(0,len_of_data)
     return data['headings'][random_num]
 
 
