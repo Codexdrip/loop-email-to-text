@@ -1,4 +1,8 @@
 #!/usr/bin/env python
+# program name: Lovely text
+# purpose: Sends a nice text message to an email or phone number
+# date: 4/5/17 1:22am
+# author: star_shelz
 
 # Import argparse for reading command line args
 import argparse
